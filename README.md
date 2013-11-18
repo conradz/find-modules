@@ -1,5 +1,10 @@
 # find-modules
 
+[![NPM](https://nodei.co/npm/find-modules.png?compact=true)](https://nodei.co/npm/find-modules/)
+
+[![Build Status](https://drone.io/github.com/conradz/find-modules/status.png)](https://drone.io/github.com/conradz/find-modules/latest)
+[![Dependency Status](https://gemnasium.com/conradz/find-modules.png)](https://gemnasium.com/conradz/find-modules)
+
 Recursively find all modules in the `node_modules` folder.
 
 ## Example
