@@ -4,9 +4,13 @@ var fs = require('fs'),
 
 module.exports = findModules;
 
+function isScopedModule(dir) {
+  return /^@/.test(path.basename(dir));
+}
+
 function findModules(dir, callback) {
     var modules = [],
-        modulesDir = path.join(dir, 'node_modules');
+        modulesDir = isScopedModule(dir) ? dir : path.join(dir, 'node_modules');
 
     fs.readdir(modulesDir, readDir);
 
@@ -35,7 +39,9 @@ function findModules(dir, callback) {
             modules = modules.concat(m);
         });
 
-        callback(null, modules);
+        callback(null, modules.filter(function (dir) {
+          return !isScopedModule(dir);
+        }));
     }
 }
 
